@@ -1,5 +1,4 @@
-// alert("Проверь пожалуйста в последний день). Спасибо)");
-let obj = {};
+// alert("Проверь пожалуйста в последний день). Спасибо)
 let line1 = {
     "Backquote": "`",
     "Digit1": "1",
@@ -84,8 +83,8 @@ const KEYS = document.querySelectorAll('.key');
 const INPUT = document.querySelector('.input');
 const CAPSLOCK = document.querySelector('.CapsLock');
 CAPSLOCK.classList.remove('key');
-const LINE2 = document.querySelector('.line2');
-const BACKSPACE = document.querySelector('.Backspace');
+// const LINE2 = document.querySelector('.line2');
+// const BACKSPACE = document.querySelector('.Backspace');
 //backspace
 document.addEventListener('keydown', (e) => {
     if (e.key == 'Backspace') {
@@ -147,7 +146,7 @@ document.addEventListener('mouseup', (e) => {
 
 
 
-let out = '';
+// let out = '';
 
 function genDiv(line) {
     let out = '';
