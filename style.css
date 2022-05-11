@@ -1,9 +1,17 @@
-.wrapper {
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
   width: 1000px;
-  margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: no-wrap;
+      flex-wrap: no-wrap;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -13,32 +21,70 @@
           align-items: center;
 }
 
-.row {
+.active {
+  background-color: #999;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.line {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  margin: 0 auto;
 }
 
-.key,
-.Backspace {
+.line3 :last-child {
+  width: 100px;
+}
+
+.key {
+  border-radius: 4px;
+  padding: 10px 0;
+  margin: 2px;
   min-width: 50px;
-  height: 50px;
-  border: 1px solid #000;
-  margin: 5px;
-  text-align: center;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  /*   height: 50px; */
+  border: 2px solid #000;
   cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
 }
 
-.active {
-  background: #888;
+.key:hover {
+  border: 2px solid #999;
+}
+
+.Backspace {
+  width: 100px;
+}
+
+.Enter {
+  width: 100px;
+}
+
+.CapsLock {
+  border-radius: 4px;
+  padding: 10px 0;
+  margin: 2px;
+  min-width: 105px;
+  /*   height: 50px; */
+  border: 2px solid #000;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.Space {
+  width: 435px;
+}
+
+.ControlRight,
+.ControlLeft {
+  width: 100px;
+}
+
+.ShiftLeft,
+.ShiftRight {
+  width: 130px;
 }
 /*# sourceMappingURL=style.css.map */

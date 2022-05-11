@@ -1,138 +1,170 @@
-let ROW1en = [49, 50, 51, 52, 53, 54, 55, 56, 57, 48];
-let ROW2en = [81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221];
-let ROW2enAttr = ['KeyQ', 'KeyW', 'KeyE', 'KeyR', 'KeyT', 'KeyY', 'KeyU', 'KeyI', 'KeyO', 'KeyP', 'BracketLeft', 'BracketRight'];
-let ROW3en = [65, 83, 68, 70, 71, 72, 74, 75, 76, 59, 222];
-let ROW2ru = [81, 87, 69, 82, 84, 89, 85, 73, 79, 80, 219, 221];
-let KEYS = document.getElementsByClassName('key');
+alert("Проверь пожалуйста в последний день). Спасибо)");
+let obj = {};
+let line1 = {
+    "Backquote": "`",
+    "Digit1": "1",
+    "Digit2": "2",
+    "Digit3": "3",
+    "Digit4": "4",
+    "Digit5": "5",
+    "Digit6": "6",
+    "Digit7": "7",
+    "Digit8": "8",
+    "Digit9": "9",
+    "Digit0": "0",
+    "Minus": "-",
+    "Equal": "=",
+    "Backspace": "Backspace"
+};
+let line2 = {
+    "Tab": "Tab",
+    "KeyQ": "q",
+    "KeyW": "w",
+    "KeyE": "e",
+    "KeyR": "r",
+    "KeyT": "t",
+    "KeyY": "y",
+    "KeyU": "u",
+    "KeyI": "i",
+    "KeyO": "o",
+    "KeyP": "p",
+    "BracketLeft": "[",
+    "BracketRight": "]",
+    "Enter": "Enter"
+};
+let line3 = {
+    "CapsLock": "CapsLock",
+    "KeyA": "a",
+    "KeyS": "s",
+    "KeyD": "d",
+    "KeyF": "f",
+    "KeyG": "g",
+    "KeyH": "h",
+    "KeyJ": "j",
+    "KeyK": "k",
+    "KeyL": "l",
+    "Semicolon": ";",
+    "Quote": "'",
+    "Backslash": "\\"
+};
+let line4 = {
+    "ShiftLeft": "Shift",
+    "KeyZ": "z",
+    "KeyX": "x",
+    "KeyC": "c",
+    "KeyV": "v",
+    "KeyB": "b",
+    "KeyN": "n",
+    "KeyM": "m",
+    "Comma": ",",
+    "Period": ".",
+    "Slash": "/",
+    "ShiftRight": "Shift"
+};
+let line5 = {
+    "ControlLeft": "Control",
+    "MetaLeft": "Meta",
+    "AltLeft": "Alt",
+    "Space": " ",
+    "AltRight": "Alt",
+    "ControlRight": "Control"
+};
+
+document.body.innerHTML = `<div class="container">
+  <textarea name="" id="" cols="103" rows="5" class="input"></textarea>
+    <div class="keyboard_lines">
+      <div class="line line1">${genDiv(line1)}</div>
+      <div class="line line2">${genDiv(line2)}</div>
+      <div class="line line3">${genDiv(line3)}</div>
+      <div class="line line4">${genDiv(line4)}</div>
+      <div class="line line5">${genDiv(line5)}</div>
+  </div>
+  </div>`;
+const KEYS = document.querySelectorAll('.key');
+const INPUT = document.querySelector('.input');
+const CAPSLOCK = document.querySelector('.CapsLock');
+CAPSLOCK.classList.remove('key');
+const LINE2 = document.querySelector('.line2');
 const BACKSPACE = document.querySelector('.Backspace');
+//backspace
+document.addEventListener('keydown', (e) => {
+    if (e.key == 'Backspace') {
+        let out = INPUT.textContent;
+        INPUT.innerHTML = out.slice(0, -1);
+    }
+})
 
-function genDiv(arr, clas) {
+//capslock
+document.addEventListener('keydown', (e) => {
+    if (e.key == 'CapsLock') {
+        CAPSLOCK.classList.toggle('active')
+    }
+})
+
+
+
+
+
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('Backspace')) {
+        let out = INPUT.textContent;
+        INPUT.innerHTML = out.slice(0, -1);
+    }
+})
+
+
+
+document.addEventListener('click', (e) => {
+    if (e.target.classList.contains('CapsLock')) {
+        CAPSLOCK.classList.toggle('active');
+    }
+})
+
+
+document.addEventListener('mousedown', (e) => {
+
+    if (e.target.closest('.key')) {
+        e.target.classList.add('active');
+    }
+    if (e.target.textContent.length < 2) {
+        if (CAPSLOCK.classList.contains('active')) {
+            INPUT.append(e.target.textContent.toUpperCase());
+        } else { INPUT.append(e.target.textContent); }
+    }
+})
+document.addEventListener('mouseup', (e) => {
+    if (e.target.closest('.key')) { e.target.classList.remove('active') }
+})
+
+
+
+
+let out = '';
+
+function genDiv(line) {
     let out = '';
-    for (let i = 0; i < arr.length; i++) {
-        out += `<div class="${clas}">${String.fromCharCode(arr[i])}</div>`;
-
+    for (let key in line) {
+        out += `<div id="${key}" class="${key} key">${line[key]}</div>`
+            // console.log(key)
     }
     return out;
 }
-let out = '';
 
-// document.body.innerHTML = `
-//  <div class="wrapper">
-//  <textarea class="input">${out}</textarea>
-//  ${genDiv(ROW2en, 'key')}</div>
-// `;
-document.body.innerHTML = `
-<div class="container" id="w">
-    <div class="keyboard_wrap" id="">
-        <div class="wrapper">
-        <textarea class="input">${out}</textarea>
-            <div class="row">
-                <div class="key BackQoute">\`</div>
-                ${genDiv(ROW1en, 'key')}
-                <div class="key">-</div>
-                <div class="key">=</div>
-                <div class="Backspace bs">Backspace</div>
-            </div>
-            <div class="row">
-                <div class="key     tab">Tab</div>
-                ${genDiv(ROW2en, 'key')}
-                <div class="key">\\</div>
-            </div>
-            <div class="row">
-                <div class="key">Caps Lock</div>
-                ${genDiv(ROW3en, 'key')}
-            </div>
-            <div class="row"></div>
-            <div class="row"></div>
-        </div>
-    </div>
-</div>`;
-
-for (let i = 0; i < KEYS.length; i++) {
-    KEYS[i].setAttribute('data-keyName', ROW2enAttr[i]);
-    // console.log(KEYS[i])
-}
-// console.log(KEYS)
-
-
-function getKeyCodeRow() {
-    let a = [];
-    document.body.addEventListener('keydown', (e) => {
-        a.push(e.code);
-        console.log(a);
-    })
-}
-// getKeyCodeRow()
-
-let wrapper = document.querySelector('.wrapper');
-let key = document.querySelectorAll('.key');
-let input = document.querySelector('.input')
-
-
-
-wrapper.addEventListener('mousedown', (e) => {
-    let et = e.target;
-
-    if (et.closest('.key')) {
-        out += et.innerHTML;
-        input.innerHTML = out;
-        et.classList.add('active');
-    }
-})
-wrapper.addEventListener('click', (e) => {
-    let et = e.target;
-    if (et.closest('.key')) {
-        et.classList.remove('active');
-    }
-})
-
+//print key
 document.addEventListener('keydown', (e) => {
-    for (let i = 0; i < KEYS.length; i++) {
-        if (e.code == KEYS[i].dataset.keyname) {
-            out += e.key.toUpperCase();
-            input.innerHTML = out;
-            KEYS[i].classList.add('active');
-            console.log(e.key);
+    for (let item of KEYS) {
+        if (e.key == item.textContent && e.key.length < 2) {
+            item.classList.add('active');
+            INPUT.append(e.key)
         }
     }
 })
-
 document.addEventListener('keyup', (e) => {
-    for (let i = 0; i < KEYS.length; i++) {
-        if (e.code == KEYS[i].dataset.keyname) {
-            KEYS[i].classList.remove('active');
+    console.log(e.key)
+    for (let item of KEYS) {
+        if (e.key == item.textContent && e.key.length < 2) {
+            item.classList.remove('active');
         }
     }
 })
-let BACKSPACE1 = document.querySelector('.bs');
-document.addEventListener('keydown', (e) => {
-    if (e.code == 'Backspace') {
-        BACKSPACE1.classList.add('active');
-        out = out.slice(0, -1);
-        input.innerHTML = out;
-    }
-})
-
-document.addEventListener('keyup', (e) => {
-    if (e.code == 'Backspace') {
-        BACKSPACE1.classList.remove('active');
-    }
-})
-const tab = document.querySelector('.tab');
-document.addEventListener('keydown', (e) => {
-
-    if (e.code == 'Tab') {
-        tab.classList.add('active');
-
-    }
-})
-
-document.addEventListener('keyup', (e) => {
-    console.log(e.code)
-    if (e.code == 'Tab') {
-
-        tab.classList.remove('active');
-    }
-})
-
-// console.log(out);
