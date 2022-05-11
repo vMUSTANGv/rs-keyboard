@@ -1,5 +1,4 @@
-// alert("Проверь пожалуйста в последний день). Спасибо)");
-let obj = {};
+// alert("Проверь пожалуйста в последний день). Спасибо)
 let line1 = {
     "Backquote": "`",
     "Digit1": "1",
@@ -84,8 +83,8 @@ const KEYS = document.querySelectorAll('.key');
 const INPUT = document.querySelector('.input');
 const CAPSLOCK = document.querySelector('.CapsLock');
 CAPSLOCK.classList.remove('key');
-const LINE2 = document.querySelector('.line2');
-const BACKSPACE = document.querySelector('.Backspace');
+// const LINE2 = document.querySelector('.line2');
+// const BACKSPACE = document.querySelector('.Backspace');
 //backspace
 document.addEventListener('keydown', (e) => {
     if (e.key == 'Backspace') {
@@ -94,10 +93,17 @@ document.addEventListener('keydown', (e) => {
     }
 })
 
-//capslock
+//capslock KEY
 document.addEventListener('keydown', (e) => {
     if (e.key == 'CapsLock') {
         CAPSLOCK.classList.toggle('active')
+        for (let item in line2) {
+            return line2[item].toUpperCase()
+        }
+    } else {
+        for (let item in line2) {
+            return line2[item].toUpperCase()
+        }
     }
 })
 
@@ -105,7 +111,7 @@ document.addEventListener('keydown', (e) => {
 
 
 
-
+//Backspace
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('Backspace')) {
         let out = INPUT.textContent;
@@ -114,7 +120,7 @@ document.addEventListener('click', (e) => {
 })
 
 
-
+// capslock CLICK
 document.addEventListener('click', (e) => {
     if (e.target.classList.contains('CapsLock')) {
         CAPSLOCK.classList.toggle('active');
@@ -127,7 +133,7 @@ document.addEventListener('mousedown', (e) => {
     if (e.target.closest('.key')) {
         e.target.classList.add('active');
     }
-    if (e.target.textContent.length < 2) {
+    if (e.target.textContent.length < 3) {
         if (CAPSLOCK.classList.contains('active')) {
             INPUT.append(e.target.textContent.toUpperCase());
         } else { INPUT.append(e.target.textContent); }
@@ -140,7 +146,7 @@ document.addEventListener('mouseup', (e) => {
 
 
 
-let out = '';
+// let out = '';
 
 function genDiv(line) {
     let out = '';
@@ -154,16 +160,19 @@ function genDiv(line) {
 //print key
 document.addEventListener('keydown', (e) => {
     for (let item of KEYS) {
-        if (e.key == item.textContent && e.key.length < 2) {
+        if (e.key == item.textContent && e.key.length < 3) {
             item.classList.add('active');
-            INPUT.append(e.key)
+            if (CAPSLOCK.classList.contains('active')) {
+                INPUT.append(e.key.toUpperCase());
+            } else { INPUT.append(e.key); }
+
         }
     }
 })
 document.addEventListener('keyup', (e) => {
     console.log(e.key)
     for (let item of KEYS) {
-        if (e.key == item.textContent && e.key.length < 2) {
+        if (e.key == item.textContent && e.key.length < 3) {
             item.classList.remove('active');
         }
     }
