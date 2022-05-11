@@ -7,7 +7,7 @@
     text-align: center;
     width: 1000px;
     display: flex;
-    wrap: no-wrap;
+    flex-wrap: no-wrap;
     flex-direction: column;
     align-items: center;
 }
@@ -16,8 +16,6 @@
     background-color: #999;
     transition: 0.5s;
 }
-
-.input {}
 
 .line {
     display: flex;
