@@ -3,6 +3,10 @@
           box-sizing: border-box;
 }
 
+.alpha {
+  background-color: #FFF8DC;
+}
+
 .container {
   margin: 0 auto;
   text-align: center;
@@ -22,9 +26,11 @@
 }
 
 .active {
-  background-color: #999;
+  background-color: #FFDEAD;
   -webkit-transition: 0.5s;
   transition: 0.5s;
+  -webkit-animation: key 1s ease-in-out;
+          animation: key 1s ease-in-out;
 }
 
 .line {
@@ -56,6 +62,7 @@
 
 .Backspace {
   width: 100px;
+  background-color: #FF9F40;
 }
 
 .Enter {
@@ -86,5 +93,43 @@
 .ShiftLeft,
 .ShiftRight {
   width: 130px;
+}
+
+.Backslash {
+  background-color: #fff;
+}
+
+@-webkit-keyframes key {
+  10% {
+    position: relative;
+    top: 5px;
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+    border: 2px solid #000;
+  }
+  50% {
+    position: relative;
+    top: 5px;
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+    border: 2px solid #000;
+  }
+}
+
+@keyframes key {
+  10% {
+    position: relative;
+    top: 5px;
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+    border: 2px solid #000;
+  }
+  50% {
+    position: relative;
+    top: 5px;
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+    border: 2px solid #000;
+  }
 }
 /*# sourceMappingURL=style.css.map */

@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+.alpha {
+    background-color: #FFF8DC;
+}
+
 .container {
     margin: 0 auto;
     text-align: center;
@@ -13,8 +17,9 @@
 }
 
 .active {
-    background-color: #999;
+    background-color: #FFDEAD;
     transition: 0.5s;
+    animation: key 1s ease-in-out;
 }
 
 .line {
@@ -43,6 +48,7 @@
 
 .Backspace {
     width: 100px;
+    background-color: #FF9F40;
 }
 
 .Enter {
@@ -72,4 +78,23 @@
 .ShiftLeft,
 .ShiftRight {
     width: 130px;
+}
+
+.Backslash {
+    background-color: #fff;
+}
+
+@keyframes key {
+    10% {
+        position: relative;
+        top: 5px;
+        transform: rotate(-1deg);
+        border: 2px solid #000;
+    }
+    50% {
+        position: relative;
+        top: 5px;
+        transform: rotate(-2deg);
+        border: 2px solid #000;
+    }
 }
