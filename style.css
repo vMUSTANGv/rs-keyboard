@@ -1,0 +1,135 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.alpha {
+  background-color: #FFF8DC;
+}
+
+.container {
+  margin: 0 auto;
+  text-align: center;
+  width: 1000px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: no-wrap;
+      flex-wrap: no-wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.active {
+  background-color: #FFDEAD;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  -webkit-animation: key 1s ease-in-out;
+          animation: key 1s ease-in-out;
+}
+
+.line {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+}
+
+.line3 :last-child {
+  width: 100px;
+}
+
+.key {
+  border-radius: 4px;
+  padding: 10px 0;
+  margin: 2px;
+  min-width: 50px;
+  /*   height: 50px; */
+  border: 2px solid #000;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.key:hover {
+  border: 2px solid #999;
+}
+
+.Backspace {
+  width: 100px;
+  background-color: #FF9F40;
+}
+
+.Enter {
+  width: 100px;
+}
+
+.CapsLock {
+  border-radius: 4px;
+  padding: 10px 0;
+  margin: 2px;
+  min-width: 105px;
+  /*   height: 50px; */
+  border: 2px solid #000;
+  cursor: pointer;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.Space {
+  width: 435px;
+}
+
+.ControlRight,
+.ControlLeft {
+  width: 100px;
+}
+
+.ShiftLeft,
+.ShiftRight {
+  width: 130px;
+}
+
+.Backslash {
+  background-color: #fff;
+}
+
+@-webkit-keyframes key {
+  10% {
+    position: relative;
+    top: 5px;
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+    border: 2px solid #000;
+  }
+  50% {
+    position: relative;
+    top: 5px;
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+    border: 2px solid #000;
+  }
+}
+
+@keyframes key {
+  10% {
+    position: relative;
+    top: 5px;
+    -webkit-transform: rotate(-1deg);
+            transform: rotate(-1deg);
+    border: 2px solid #000;
+  }
+  50% {
+    position: relative;
+    top: 5px;
+    -webkit-transform: rotate(-2deg);
+            transform: rotate(-2deg);
+    border: 2px solid #000;
+  }
+}
+/*# sourceMappingURL=style.css.map */
